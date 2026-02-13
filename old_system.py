@@ -57,7 +57,7 @@ def run_system_monolith():
             count = 0
             
             for rank in r:
-                if rank == "Captain" or "Commander": 
+                if rank == "Captain": # Check if captain 
                     count = count + 1
             print(f"High ranking officers: {count}") # Concatenated them together - This was the recent fix
             
