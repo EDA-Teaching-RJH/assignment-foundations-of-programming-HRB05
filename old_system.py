@@ -40,6 +40,7 @@ def run_system_monolith():
            
             n.append(new_name)
             r.append(new_rank) # List was out of range as the rank was not being appended
+            d.append(new_div) # Same fix
             print("Crew member added.")
             
         elif opt == "3":
@@ -58,7 +59,7 @@ def run_system_monolith():
             for rank in r:
                 if rank == "Captain" or "Commander": 
                     count = count + 1
-            print("High ranking officers: " + count) 
+            print(f"High ranking officers: {count}") # Concatenated them together
             
         elif opt == "5":
             print("Shutting down.")
