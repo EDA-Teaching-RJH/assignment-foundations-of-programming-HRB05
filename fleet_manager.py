@@ -55,6 +55,19 @@ def add_member():
             print("Invalid")
             continue
 
+def remove_member():
+    while True:
+        id = input("What is the ID >> ")
+        if id >= 0:
+            break
+        else:
+            continue
+    Names.pop(id)
+    Ranks.pop(id)
+    Divs.pop(id)
+    Ids.pop(id)
+
+
 def main():
     global Fname
     Fname = input("What is your full name >> ")
@@ -63,5 +76,17 @@ def main():
         opt = display_menu()
         if opt == 1:
             add_member()
+        elif opt == 2:
+            remove_member()
+        try:
+            change = input(f"Is {Fname} still logged in (y/n) >> ")
+            if change.lower == "y":
+                Fname = Fname
+                break
+            elif change.lower == "n":
+                Fname = input("What is your full name >> ")
+                break
+        except:
+            continue
 
 main()
