@@ -13,6 +13,7 @@ def run_system_monolith():
     loading = 0
     while loading < 5:
         print("Loading module " + str(loading))
+        loading += 1 # loading was stuck on 0 so added incrementation
         
     
     while True:
