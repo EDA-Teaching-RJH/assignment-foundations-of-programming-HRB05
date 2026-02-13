@@ -57,11 +57,14 @@ def add_member():
 
 def remove_member():
     while True:
-        id = input("What is the ID >> ")
-        if id >= 0:
-            break
-        else:
-            continue
+        try:
+            id = int(input("What is the ID >> "))
+            if id >= 0:
+                break
+            else:
+                continue
+        except:
+            print("ID's are a number")
     Names.pop(id)
     Ranks.pop(id)
     Divs.pop(id)
@@ -78,15 +81,13 @@ def main():
             add_member()
         elif opt == 2:
             remove_member()
-        try:
-            change = input(f"Is {Fname} still logged in (y/n) >> ")
-            if change.lower == "y":
+        while True:
+            change = str(input(f"Is {Fname} still logged in (y/n) >> "))
+            if change == "y":
                 Fname = Fname
                 break
-            elif change.lower == "n":
+            elif change == "n":
                 Fname = input("What is your full name >> ")
                 break
-        except:
-            continue
 
 main()
