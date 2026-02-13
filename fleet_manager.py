@@ -62,13 +62,30 @@ def remove_member():
             if id >= 0:
                 break
             else:
+                print("Invalid ID")
                 continue
         except:
             print("ID's are a number")
-    Names.pop(id)
-    Ranks.pop(id)
-    Divs.pop(id)
-    Ids.pop(id)
+            continue
+    num = Ids.index(id)
+    Names.pop(num)
+    Ranks.pop(num)
+    Divs.pop(num)
+    Ids.pop(num)
+
+def update_rank():
+    while True:
+        try:
+            id = int(input("What is the ID >> "))
+            if id >= 0:
+                break
+            else:
+                continue
+        except:
+            print("ID's are a number")
+            continue
+    new_rank = input("What is the new rank >> ")
+    Ranks[id] = new_rank
 
 
 def main():
@@ -81,6 +98,8 @@ def main():
             add_member()
         elif opt == 2:
             remove_member()
+        elif opt == 3:
+            update_rank()
         while True:
             change = str(input(f"Is {Fname} still logged in (y/n) >> "))
             if change == "y":
