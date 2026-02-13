@@ -39,6 +39,7 @@ def run_system_monolith():
             
            
             n.append(new_name)
+            r.append(new_rank) # List was out of range as the rank was not being appended
             print("Crew member added.")
             
         elif opt == "3":
