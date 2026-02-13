@@ -12,7 +12,7 @@ def display_menu():
     print("2) Remove Members")
     print("3) Update Rank")
     print("4) Display Roster")
-    print("5) Search Crew : 5")
+    print("5) Search Crew")
     print("6) Filter By Division")
     print("7) Calculate Payroll")
     print("8) Count Officers")
@@ -51,6 +51,9 @@ def add_member():
                 else:
                     print("Invalid ID")
                     continue
+            else:
+                print("Invalid")
+                continue
         except:
             print("Invalid")
             continue
@@ -87,6 +90,9 @@ def update_rank():
     new_rank = input("What is the new rank >> ")
     Ranks[id] = new_rank
 
+def display_roster():
+    for i in range(len(Names)):
+        print(f"{i+1} : {Names[i]} | {Ranks[i]} | {Divs[i]}")
 
 def main():
     global Fname
@@ -100,6 +106,8 @@ def main():
             remove_member()
         elif opt == 3:
             update_rank()
+        elif opt == 4:
+            display_roster()
         while True:
             change = str(input(f"Is {Fname} still logged in (y/n) >> "))
             if change == "y":
