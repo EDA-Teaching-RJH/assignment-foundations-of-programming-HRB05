@@ -28,12 +28,40 @@ def display_menu():
             continue
     return choice
 
+def add_member():
+    name = input("What is their name >> ")
+    rank = input("What is their rank >> ")
+    div = input("What is their division >> ")
+    while True:
+        try:
+            id = int(input("What is their ID >> "))
+            if id > 0:
+                if id > Ids[-1]:
+                    Ids.append(id)
+                    Ranks.append(rank)
+                    Names.append(name)
+                    Divs.append(div)
+                    break
+                elif Ids[-2] < id < Ids[-1]:
+                    Ids.append(id)
+                    Ranks.append(rank)
+                    Names.append(name)
+                    Divs.append(div)
+                    break
+                else:
+                    print("Invalid ID")
+                    continue
+        except:
+            print("Invalid")
+            continue
 
 def main():
     global Fname
     Fname = input("What is your full name >> ")
     while True:
         init_database()
-        break
+        opt = display_menu()
+        if opt == 1:
+            add_member()
 
 main()
