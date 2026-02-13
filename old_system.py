@@ -25,7 +25,7 @@ def run_system_monolith():
         
         opt = input("Select option: ")
         
-        if opt = "1":  
+        if opt == "1": # Needed two equals as is checking if equal to 1
             print("Current Crew List:")
             
             for i in range(10):
