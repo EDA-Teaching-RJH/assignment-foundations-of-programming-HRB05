@@ -136,6 +136,19 @@ def calculate_payroll():
         else:
             payroll = payroll
     print(f"Crew cost : ${payroll}") # prints payroll
+
+def count_officers():
+    officers = 0
+    NamedOfficers = []
+    for i in range(len(Ranks)):
+        if Ranks[i] == "Captain" or Ranks[i] == "Commander":
+            NamedOfficers.append(Names[i]) # This should create a list of the officers to be printed
+            officers += 1
+        else:
+            officers = officers
+    print(f"There are {officers} officers")
+    for i in range(len(NamedOfficers)):
+        print(f"{i+1} : {NamedOfficers[i]}") # I thought i would get the names of the officers to show the user clearer
         
 def main():
     global Fname
@@ -157,6 +170,8 @@ def main():
             filter_by_division()
         elif opt == 7:
             calculate_payroll()
+        elif opt == 8:
+            count_officers()
         while True:
             change = str(input(f"Is {Fname} still logged in (y/n) >> "))
             if change == "y":
