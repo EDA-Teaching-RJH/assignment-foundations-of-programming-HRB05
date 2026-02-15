@@ -135,7 +135,7 @@ def calculate_payroll():
             payroll += 200
         else:
             payroll = payroll
-    print(f"Crew cost : ${payroll}")
+    print(f"Crew cost : ${payroll}") # prints payroll
         
 def main():
     global Fname
