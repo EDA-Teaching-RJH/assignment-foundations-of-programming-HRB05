@@ -105,6 +105,16 @@ def search_crew():
         if search in Names[i]:
             print(Names[i])
 
+def filter_by_division():
+    filter = input("What division do you want to filter for (Command, Operations, Sciences, Councillor or Medical)>> ")
+    filtered = 0
+    for i in range(len(Divs)):
+        if filter == Divs[i]:
+            print(f"{Names[i]} | {Ranks[i]}")
+            filtered += 1
+    if filtered == 0:
+        print(f"No people found in {filter} division")
+        
 def main():
     global Fname
     Fname = input("What is your full name >> ")
@@ -121,6 +131,8 @@ def main():
             display_roster()
         elif opt == 5:
             search_crew()
+        elif opt == 6:
+            filter_by_division()
         while True:
             change = str(input(f"Is {Fname} still logged in (y/n) >> "))
             if change == "y":
