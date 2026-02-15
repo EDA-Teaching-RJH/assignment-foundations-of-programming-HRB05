@@ -3,7 +3,7 @@ def init_database():
     Names = ["Kirk", "Troi", "Mccoy", "Sulu", "Harry"]
     Ranks = ["Captain", "Commander", "Lieutenant Commander", "Lieutenant", "Ensign"]
     Divs = ["Command", "Councillor", "Medical", "Command", "Operations"]
-    Ids = [0,1,2,3]
+    Ids = [0,1,2,3,4] # I am silly and forgot to add 5 IDs
     return Names, Ranks, Divs, Ids
 
 def display_menu():
@@ -30,7 +30,6 @@ def display_menu():
 
 def add_member():
     name = input("What is their name >> ")
-    rank = input("What is their rank >> ")
     div = input("What is their division >> ")
     while True:
         try:
@@ -41,10 +40,21 @@ def add_member():
             if id in Ids:
                 print("Invalid ID. ID alredy in use") # Fixed the ID check as i realised the the logic would'nt work as the IDs are not sorted in order so would break
                 continue
-            Ids.append(id)
-            Ranks.append(rank)
-            Names.append(name)
-            Divs.append(div)
+            while True:
+                ValidRanks = ["Captain", "Commander", "Lieutenant Commander", "Lieutenant", "Ensign"]
+                try:
+                    rank = str(input("What is their rank >> "))
+                    if rank not in ValidRanks:
+                        print("Not a valid rank")
+                        continue
+                    Ids.append(id) # Also added the rank check with the same logic 
+                    Ranks.append(rank)
+                    Names.append(name)
+                    Divs.append(div)
+                    break
+                except:
+                    print("Must be a rank")
+                    continue
             break
         except:
             print("Invalid. IDs must be a number")
@@ -87,7 +97,8 @@ def update_rank():
 
 def display_roster():
     for i in range(len(Names)):
-        print(f"{i+1} : {Names[i]} | {Ranks[i]} | {Divs[i]}")
+        print(f"{i+1} : {Names[i]} | {Ranks[i]} | {Divs[i]} | {Ids[i]}")
+
 
 def main():
     global Fname
