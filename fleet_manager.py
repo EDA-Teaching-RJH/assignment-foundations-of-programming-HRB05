@@ -73,6 +73,7 @@ def remove_member():
             print("ID's are a number")
             continue
     try:
+        print(f"{Names[id]} was removed") # Couldnt really tell what happens when yoy remove someone so added this
         num = Ids.index(id)
         Names.pop(num)
         Ranks.pop(num)
@@ -118,6 +119,23 @@ def filter_by_division():
             filtered += 1
     if filtered == 0:
         print(f"No people found in {filter} division")
+
+def calculate_payroll():
+    payroll = 0
+    for i in range(len(Ranks)):
+        if Ranks[i] == "Captain":
+            payroll += 1000
+        elif Ranks[i] == "Commander":
+            payroll += 800
+        elif Ranks[i] == "Lieutenant Commander":
+            payroll += 600
+        elif Ranks[i] == "Lieutenant":
+            payroll += 400
+        elif Ranks[i] == "Ensign":
+            payroll += 200
+        else:
+            payroll = payroll
+    print(f"Crew cost : ${payroll}")
         
 def main():
     global Fname
@@ -137,6 +155,8 @@ def main():
             search_crew()
         elif opt == 6:
             filter_by_division()
+        elif opt == 7:
+            calculate_payroll()
         while True:
             change = str(input(f"Is {Fname} still logged in (y/n) >> "))
             if change == "y":
