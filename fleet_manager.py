@@ -35,27 +35,19 @@ def add_member():
     while True:
         try:
             id = int(input("What is their ID >> "))
-            if id > 0:
-                if id > Ids[-1]:
-                    Ids.append(id)
-                    Ranks.append(rank)
-                    Names.append(name)
-                    Divs.append(div)
-                    break
-                elif Ids[-2] < id < Ids[-1]:
-                    Ids.append(id)
-                    Ranks.append(rank)
-                    Names.append(name)
-                    Divs.append(div)
-                    break
-                else:
-                    print("Invalid ID")
-                    continue
-            else:
-                print("Invalid")
+            if id < 0:
+                print("Invalid ID. Must be positive")
                 continue
+            if id in Ids:
+                print("Invalid ID. ID alredy in use") # Fixed the ID check as i realised the the logic would'nt work as the IDs are not sorted in order so would break
+                continue
+            Ids.append(id)
+            Ranks.append(rank)
+            Names.append(name)
+            Divs.append(div)
+            break
         except:
-            print("Invalid")
+            print("Invalid. IDs must be a number")
             continue
 
 def remove_member():
@@ -70,11 +62,14 @@ def remove_member():
         except:
             print("ID's are a number")
             continue
-    num = Ids.index(id)
-    Names.pop(num)
-    Ranks.pop(num)
-    Divs.pop(num)
-    Ids.pop(num)
+    try:
+        num = Ids.index(id)
+        Names.pop(num)
+        Ranks.pop(num)
+        Divs.pop(num)
+        Ids.pop(num)
+    except: 
+        print("No assigned ID")
 
 def update_rank():
     while True:
@@ -97,8 +92,8 @@ def display_roster():
 def main():
     global Fname
     Fname = input("What is your full name >> ")
+    init_database() # Have to move before because the lists are being reset if not
     while True:
-        init_database()
         opt = display_menu()
         if opt == 1:
             add_member()
