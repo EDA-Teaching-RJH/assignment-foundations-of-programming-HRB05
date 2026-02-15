@@ -99,6 +99,11 @@ def display_roster():
     for i in range(len(Names)):
         print(f"{i+1} : {Names[i]} | {Ranks[i]} | {Divs[i]} | {Ids[i]}")
 
+def search_crew():
+    search = input("What name do you want to search for >> ")
+    for i in range(len(Names)):
+        if search in Names[i]:
+            print(Names[i])
 
 def main():
     global Fname
@@ -114,6 +119,8 @@ def main():
             update_rank()
         elif opt == 4:
             display_roster()
+        elif opt == 5:
+            search_crew()
         while True:
             change = str(input(f"Is {Fname} still logged in (y/n) >> "))
             if change == "y":
