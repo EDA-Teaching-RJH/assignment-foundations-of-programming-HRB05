@@ -101,9 +101,13 @@ def display_roster():
 
 def search_crew():
     search = input("What name do you want to search for >> ")
+    people = 0
     for i in range(len(Names)):
         if search in Names[i]:
             print(Names[i])
+            people += 1
+    if people == 0:
+        print(f"No names found") # Added this same count so it tells you if no one is found
 
 def filter_by_division():
     filter = input("What division do you want to filter for (Command, Operations, Sciences, Councillor or Medical)>> ")
