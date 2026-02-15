@@ -17,7 +17,7 @@ def display_menu():
     print("7) Calculate Payroll")
     print("8) Count Officers")
     print("-=x=-=x=-=x=-=x=-=x==x=-=x=-=x=-=x=-=x=-")
-    print(f"{Fname} is currently logged in")
+    print(f"{Fname} is currently logged in") # Fname is declared in main
     print("-=x=-=x=-=x=-=x=-=x==x=-=x=-=x=-=x=-=x=-")
     while True:
         try:
